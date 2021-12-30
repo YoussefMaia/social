@@ -14,5 +14,18 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/add', async (req, res) => {
+    try{
+        res.json({
+            status: 200,
+            message: "add category "
+        })
+    }
+    catch(e){
+        console.log(e)
+        return res.status(500).send("Server error")
+    }
+})
+
 
 module.exports = router;
