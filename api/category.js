@@ -1,11 +1,24 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/category', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         res.json({
             status: 200,
             message: "Category has been downloaded"
+        })
+    }
+    catch(e){
+        console.log(e)
+        return res.status(500).send("Server error")
+    }
+})
+
+router.get('/add', async (req, res) => {
+    try{
+        res.json({
+            status: 200,
+            message: "Add Category"
         })
     }
     catch(e){
