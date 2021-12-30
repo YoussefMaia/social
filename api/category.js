@@ -1,5 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const mysql = require('mysql')
+
+const db = mysql.createPool({
+    host: "sql11.freemysqlhosting.net",
+    user: "sql11462320",
+    password: "VM52ymnmGq",
+    database: "sql11462320"
+})
 
 router.get('/', async (req, res) => {
     try{
