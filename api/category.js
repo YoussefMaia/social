@@ -11,9 +11,12 @@ const db = mysql.createPool({
 
 router.get('/', async (req, res) => {
     try{
-        res.json({
-            status: 200,
-            message: "Category has been downloaded"
+        const selectCategory = "SELECT * FROM category LEFT JOIN city ON category.city_ID = city.city_ID ";
+        db.query (selectCategory, (err, result) => {
+            if(!err)
+                res.send(result)
+            else
+                res.send(err)
         })
     }
     catch(e){
